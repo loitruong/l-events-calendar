@@ -3,44 +3,44 @@
 
 
           return '
-		      <div id="loicalendar">
+		      <div id="loicalendar" imagePath="'. plugins_url( '../img/', __FILE__ ) .'">
 		      	<div class="binders">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
-		      		<img src="'.  plugins_url( 'img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
+		      		<img src="'.  plugins_url( '../img/binder.png', __FILE__ ) . '" alt="" width="37" height="33">
 		      	</div>
 		      	<div class="top-calendar">
 		      		<div class="preloader">

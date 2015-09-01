@@ -16,15 +16,15 @@ if (!class_exists('LEC_Plugin'))
       /*
         Option Page of the Plugin
       */
-      include_once('option-page.php');
+      include_once('core/option-page.php');
       $OptionPage = new OptionPage();
       if(!post_type_exists("l-event")){
-        include_once('initial-post-type.php');
+        include_once('core/initial-post-type.php');
       }
       /*
        Custom fields
       */
-      include_once('l-events-custom-fields.php');
+      include_once('core/l-events-custom-fields.php');
 
       /*
         Add Script to admin panel
@@ -34,7 +34,7 @@ if (!class_exists('LEC_Plugin'))
       /*
         Add Shortcode
       */
-      include_once('shortcode.php');
+      include_once('core/shortcode.php');
 
       /*
         Add Script to the site
@@ -44,7 +44,7 @@ if (!class_exists('LEC_Plugin'))
       /*
         Calendar API
       */
-      include_once('calendar-api.php');
+      include_once('core/calendar-api.php');
     }
     /**
       * @desc put scripts and styles in admin page

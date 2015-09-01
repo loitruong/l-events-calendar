@@ -9,8 +9,9 @@
 var monthNames = ["none","Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 $j = jQuery;
 var allEvents;
-
+var imagePath;
 $j(document).ready(function(){
+	imagePath = $j("#loicalendar").attr("imagepath");
 	loiCalendar();
 	//==========================================================
 	//Click Events Section
@@ -23,16 +24,16 @@ $j(document).ready(function(){
 			currentMonth = 12;
 			$j("#loicalendar .current-month").text(monthNames[12] + " " + currentYear);
 			$j("#loicalendar .preloader").show();
-			$j('<img src="/wp-content/plugins/l-events-calendar/img/month_'+ currentMonth +'.jpg">').load(function() {
-				$j("#loicalendar .top-calendar").css("background-image", 'url("/wp-content/plugins/l-events-calendar/img/month_'+ currentMonth +'.jpg")');
+			$j('<img src="'+ imagePath +'month_'+ currentMonth +'.jpg">').load(function() {
+				$j("#loicalendar .top-calendar").css("background-image", 'url("'+ imagePath +'month_'+ currentMonth +'.jpg")');
 				$j("#loicalendar .preloader").hide();
 			});
 		}else{
 			currentMonth--;
 			$j("#loicalendar .current-month").text(monthNames[currentMonth] + " " + currentYear);
 			$j("#loicalendar .preloader").show();
-			$j('<img src="/wp-content/plugins/l-events-calendar/img/month_'+ currentMonth +'.jpg">').load(function() {
-				$j("#loicalendar .top-calendar").css("background-image", 'url("/wp-content/plugins/l-events-calendar/img/month_'+ currentMonth +'.jpg")');
+			$j('<img src="'+ imagePath +'month_'+ currentMonth +'.jpg">').load(function() {
+				$j("#loicalendar .top-calendar").css("background-image", 'url("'+ imagePath +'month_'+ currentMonth +'.jpg")');
 				$j("#loicalendar .preloader").hide();
 			});
 		}
@@ -50,16 +51,16 @@ $j(document).ready(function(){
 			currentMonth = 1;
 			$j("#loicalendar .current-month").text(monthNames[1] + " " + currentYear);
 			$j("#loicalendar .preloader").show();
-			$j('<img src="/wp-content/plugins/l-events-calendar/img/month_'+ currentMonth +'.jpg">').load(function() {
-				$j("#loicalendar .top-calendar").css("background-image", 'url("/wp-content/plugins/l-events-calendar/img/month_'+ currentMonth +'.jpg")');
+			$j('<img src="'+ imagePath +'month_'+ currentMonth +'.jpg">').load(function() {
+				$j("#loicalendar .top-calendar").css("background-image", 'url("'+ imagePath +'month_'+ currentMonth +'.jpg")');
 				$j("#loicalendar .preloader").hide();
 			});
 		}else{
 			currentMonth++;
 			$j("#loicalendar .current-month").text(monthNames[currentMonth] + " " + currentYear);
 			$j("#loicalendar .preloader").show();
-			$j('<img src="/wp-content/plugins/l-events-calendar/img/month_'+ currentMonth +'.jpg">').load(function() {
-				$j("#loicalendar .top-calendar").css("background-image", 'url("/wp-content/plugins/l-events-calendar/img/month_'+ currentMonth +'.jpg")');
+			$j('<img src="'+ imagePath +'month_'+ currentMonth +'.jpg">').load(function() {
+				$j("#loicalendar .top-calendar").css("background-image", 'url("'+ imagePath +'month_'+ currentMonth +'.jpg")');
 				$j("#loicalendar .preloader").hide();
 			});
 		}
@@ -79,7 +80,7 @@ $j(document).ready(function(){
 		//disable
 		var columndateformat = $j(this).attr("eventDate");
 		var eventIDs = $j(this).attr("event-lists");
-		var dummyImage = "/wp-content/plugins/l-events-calendar/img/month_"+ $j(this).attr("eventMonth") +".jpg";
+		var dummyImage = "'+ imagePath +'month_"+ $j(this).attr("eventMonth") +".jpg";
 		$j(".loiModal .event-list .content").empty();
 		$j("#loicalendar .loiModal").show().css("left", "100%").animate({
 			"left" : "0px"
@@ -174,8 +175,8 @@ function loiCalendar(){
 	$j("#loicalendar .current-month").attr("year", currentYear);
 	$j("#loicalendar .current-month").text(monthNames[currentMonth] + " " + currentYear);
 	$j("#loicalendar .preloader").show();
-	$j('<img src="/wp-content/plugins/l-events-calendar/img/month_'+ currentMonth +'.jpg">').load(function() {
-		$j("#loicalendar .top-calendar").css("background-image", 'url("/wp-content/plugins/l-events-calendar/img/month_'+ currentMonth +'.jpg")');
+	$j('<img src="'+ imagePath +'month_'+ currentMonth +'.jpg">').load(function() {
+		$j("#loicalendar .top-calendar").css("background-image", 'url("'+ imagePath +'month_'+ currentMonth +'.jpg")');
 		$j("#loicalendar .preloader").hide();
 	});
 	
