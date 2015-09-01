@@ -33,14 +33,15 @@
       $this->options = get_option( 'lec_options' );
       ?>
       <div class="wrap">
-          <h2>L Events Calendar</h2>
-          <p>There are no settings at the momment. Please <a href="https://github.com/loitruong/l-events-calendar/issues/new" target="_blank">open a new issue</a> for feature requests.</p>
-          <h2>Plugin Instruction</h2>
-          <ol>
-            <li>Use the shortcode <code>[l-event-calendar]</code> on any page</li>
-            <li>Add an event inside l-event</li>
-            <li>Enjoy the coolest event calendar ever.</li>
-          </ol>
+        <h2>L Events Calendar</h2>
+        <p>There are no settings at the momment. Please <a href="https://github.com/loitruong/l-events-calendar/issues/new" target="_blank">open a new issue</a> for feature requests.</p>
+        <h2>Plugin Instructions</h2>
+        <ol>
+          <li>Use the shortcode <code>[l-event-calendar]</code> on any page</li>
+          <li>Add an event inside l-event</li>
+          <li>Enjoy the coolest event calendar ever.</li>
+        </ol>
+      </div>
       <?php
 
      }
