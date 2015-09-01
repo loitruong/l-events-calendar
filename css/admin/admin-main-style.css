@@ -1,2 +1,29 @@
-.meta-box-container{padding:20px 0}.l-row:before,.l-row:after{content:'';display:table;clear:fixed}.l-row .half-col{width:50%;float:left;margin-bottom:10px}@media (max-width: 991px){.l-row .half-col{width:100%}}.l-row .full-col{width:100%;margin-bottom:10px}.l-row .full-col input{width:80%}.l-row select{position:relative;top:-3px}.l-row input{padding:5px 3px}
+/*
+	Admin Main Style
+*/
+.meta-box-container {
+  padding: 20px 0; }
+
+.l-row:before, .l-row:after {
+  content: '';
+  display: table;
+  clear: fixed; }
+.l-row .half-col {
+  width: 50%;
+  float: left;
+  margin-bottom: 10px; }
+  @media (max-width: 991px) {
+    .l-row .half-col {
+      width: 100%; } }
+.l-row .full-col {
+  width: 100%;
+  margin-bottom: 10px; }
+  .l-row .full-col input {
+    width: 80%; }
+.l-row select {
+  position: relative;
+  top: -3px; }
+.l-row input {
+  padding: 5px 3px; }
+
 /*# sourceMappingURL=admin-main-style.css.map */
