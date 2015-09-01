@@ -1,0 +1,407 @@
+// ==========================================================================
+// Loi Gallery Display Style
+// ==========================================================================
+// responsive
+$phone: "max-width: 450px";
+$half-sm: "max-width: 550px";
+$sm: "max-width: 767px";
+$md: "max-width: 991px";
+$lg: "max-width: 1199px";
+$xlg: "max-width: 1299px";
+$xxlg: "max-width: 1499px";
+//mixin
+@mixin prefix($attribute, $value) {
+  -webkit-#{$attribute}: #{$value};
+  -ms-#{$attribute}: #{$value};
+  -moz-#{$attribute}: #{$value};
+  -o-#{$attribute}: #{$value};
+  #{$attribute}: #{$value};
+}
+$theme-color: #FF3D00;
+
+#loicalendar{
+	width: 100%;
+	border: 2px solid $theme-color;
+	position: relative;
+	margin-top: 10px;
+	@include prefix("box-shadow", "1px 1px 11px 0px gray");
+	@include prefix("user-select", "none");
+	@include prefix("box-sizing", "border-box");
+}
+#loicalendar .binders{
+	width: 100%;
+	overflow: hidden;
+	height: 33px;
+	position: absolute;
+	top: -12px;
+	text-align: center;
+	padding: 0 15px;
+	left: 0;
+	z-index: 1;
+}
+#loicalendar .top-calendar{
+	//background-image: url("./img/calendar/month_4.jpg");
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 500px;
+	position: relative;
+	.preloader{
+	  position: absolute;
+	  left: 50%;
+	  top: 50%;
+	  z-index: 10;
+	  svg{
+	    display: inline-block;
+	    width: 100px;
+	    height: 100px;
+	    fill: $theme-color;
+	    path{
+	      fill: $theme-color;
+	    }
+	  }
+	  @for $i from 0 to 11 {
+	    svg path:nth-child(#{$i}) {
+	      animation: loadermove 1s infinite;
+	      -webkit-animation: loadermove 1s infinite;
+	      -webkit-animation-delay: #{1 - ($i * 0.1)}s; 
+	      animation-delay: #{1 - ($i * 0.1)}s;
+	    }
+	  }
+	  @include prefix("transform", "translate(-50px, -50px)");
+	}
+	@media($sm){
+		height: 300px;
+	}
+	@media($phone){
+		height: 250px;
+	}
+}
+#loicalendar .calendar-nav{
+	text-align: center;
+	font-size: 24px;
+	position: relative;
+	color: $theme-color;
+	padding: 15px;
+	.current-month{
+		text-transform: uppercase;
+	}
+	.prev-month{
+		position: absolute;
+		left: 15px;
+		top: 15px;
+		cursor: pointer;
+	}
+	.next-month{
+		position: absolute;
+		right: 15px;
+		top: 15px;
+		cursor: pointer;
+	}
+	svg{
+		width: 30px;
+		height: 30px;
+		fill: $theme-color;
+	}
+}
+#loicalendar .calendar-layout{
+	padding: 15px;
+	@media($phone){
+		font-size: 14px;
+	}
+}
+#loicalendar .calendar-row{
+	width: 100%;
+	&:before, &:after{
+		content: '';
+		display: table;
+		clear: both;
+	}
+	.calendar-column{
+		width: 14.285714286%;
+		float: left;
+		display: inline-block;
+		border: 1px solid #efefef;
+		padding: 3px;
+		min-height: 150px;
+		position: relative;
+		cursor: pointer;
+		.column-date-cover{
+			text-align: right;
+			width: 100%;
+		}
+		.column-date{
+			display: inline-block;
+			width: 25px;
+			height: 25px;
+			border: 1px solid transparent;
+		}
+		.column-date.currentDate{
+			color: $theme-color;
+			position: relative;
+			display: inline-block;
+			text-align: center;
+			width: 25px;
+			height: 25px;
+			line-height: 0;
+			padding-top: 10px;
+			border-color: #FF3D00;
+			@include prefix("border-radius", 50%);
+		}
+		@media($md){
+			min-height: 100px;
+		}
+		@media($sm){
+			min-height: 75px;
+		}
+		@media($half-sm){
+			min-height: 30px;
+			border: none;
+			.column-date-cover{
+				text-align: center;
+
+			}
+		}
+		&:hover, &:focus, &:active{
+			background-color: #f3f3f3;
+		}
+	}
+	.individual-event{
+		padding: 3px;
+		background-color: red;
+		color: white;
+		text-transform: capitalize;
+		margin: 2px;
+		display: inline-block;
+		cursor: pointer;
+		@include prefix("border-radius", "5px");
+		&:hover, &:focus, &:active{
+			text-decoration: none;
+			background-color: #080808;
+		}
+	}
+	.view-all-events{
+		display: none;
+	}
+	.view-all-events.active{
+		display: inline-block;
+		cursor: pointer;
+		text-align: center;
+		vertical-align: middle;
+		cursor: pointer;
+		position: absolute;
+		top: 0;
+		left: 0;
+	    width: 100%;
+	    height: 100%;
+		svg{
+			width: 20px;
+			height: 20px;
+			fill: $theme-color;
+			position: absolute;
+			@include prefix("transform", "translate(-10px, -10px)");
+		}
+	}
+}
+#loicalendar .calendar-row-header{
+
+	.calendar-column{
+		width: 14.285714286%;
+		float: left;
+		display: inline-block;
+		border: none;
+		text-align: center;
+		min-height: 0;
+		padding: 3px;
+	}
+}
+#loicalendar .loiModal{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  display: none;
+  text-align: center;
+  overflow-y: scroll;
+  .close{
+    float: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80px;
+    opacity: 1;
+    color: white;
+    background-color: $theme-color;
+    font-weight: 300;
+    z-index: 100;
+    cursor: pointer;
+    font-size: 24px;
+    &:focus, &:active, &:hover{
+    	background-color: white;
+    	color: $theme-color;
+    	@media($md){
+    		background-color: $theme-color;
+    		color: white;
+    	}
+    }
+  }
+}
+.loiModal .layoutbackground{
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: RGBA(0, 0, 0, 0.8);
+  width: 100%;
+  z-index: 1;
+  height: 100%;
+}
+.loiModal .event-list .header{
+  position: absolute;
+  top: -50px;
+  font-size: 24px;
+  background-color: white;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.loiModal .event-list{
+  position: relative;
+  z-index: 2;
+  top: 0;
+  max-width: 80%;
+  width: 100%;
+  min-height: 100%;
+  display: inline-block;
+  text-align: center;
+  padding-top: 50px;
+  @media($md){
+    max-width: 90%;
+  }
+  @media ($sm){
+    max-width: 100%;
+  }
+}
+.loiModal  .content{
+	width: 100%;
+	height: 100%;
+	min-height: 100vh;
+	background-color: white;
+	padding: 15px;
+}
+.loiModal .eachEvent{
+	margin-bottom: 20px;
+	&:before, &:after{
+		content: '';
+		display: table;
+		clear: both;
+	}
+	.thumbnail{
+		height: 100%;
+		width: 30%;
+		display: inline-block;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+		float: left;
+		height: 200px;
+		@media($md){
+		 	display: none;
+		}
+	}
+	.event-info{
+		width: 50%;
+		height: 100%;
+		display: inline-block;
+		float: left;
+		border-left: 3px solid white;
+		border-right: 3px solid white;
+		text-align: left;
+		.event-title{
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,2989d8+50,207cca+51,7db9e8+100;Blue+Gloss+Default */
+			background: rgb(30,87,153); /* Old browsers */
+			/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+			background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzFlNTc5OSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzI5ODlkOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iIzIwN2NjYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM3ZGI5ZTgiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+			background: -moz-linear-gradient(top,  rgba(30,87,153,1) 0%, rgba(41,137,216,1) 50%, rgba(32,124,202,1) 51%, rgba(125,185,232,1) 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(30,87,153,1)), color-stop(50%,rgba(41,137,216,1)), color-stop(51%,rgba(32,124,202,1)), color-stop(100%,rgba(125,185,232,1))); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(top,  rgba(30,87,153,1) 0%,rgba(41,137,216,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(top,  rgba(30,87,153,1) 0%,rgba(41,137,216,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(top,  rgba(30,87,153,1) 0%,rgba(41,137,216,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* IE10+ */
+			background: linear-gradient(to bottom,  rgba(30,87,153,1) 0%,rgba(41,137,216,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-8 */
+
+			color: white;
+			padding: 10px 0;
+			text-align: center;
+			text-transform: capitalize;
+		}
+		.event-description{
+		}
+		@media($md){
+			width: 70%;
+		}
+	}
+	.event-date{
+		width: 20%;
+		display: inline-block;
+		float: left;
+		color: white;
+		position: relative;
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,2989d8+50,207cca+51,7db9e8+100;Blue+Gloss+Default */
+		background: rgb(30,87,153); /* Old browsers */
+		/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+		background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzFlNTc5OSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzI5ODlkOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUxJSIgc3RvcC1jb2xvcj0iIzIwN2NjYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM3ZGI5ZTgiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+		background: -moz-linear-gradient(top,  rgba(30,87,153,1) 0%, rgba(41,137,216,1) 50%, rgba(32,124,202,1) 51%, rgba(125,185,232,1) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(30,87,153,1)), color-stop(50%,rgba(41,137,216,1)), color-stop(51%,rgba(32,124,202,1)), color-stop(100%,rgba(125,185,232,1))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  rgba(30,87,153,1) 0%,rgba(41,137,216,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  rgba(30,87,153,1) 0%,rgba(41,137,216,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  rgba(30,87,153,1) 0%,rgba(41,137,216,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  rgba(30,87,153,1) 0%,rgba(41,137,216,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-8 */
+		&:before, &:after{
+			content: '';
+			display: block;
+			position: absolute;
+			top: -13px;
+			width: 3px;
+			height: 30px;
+			border: 1px solid white;
+			@include prefix("border-radius", "5px");
+			background-color: #1D5699;
+		}
+		&:before{
+			left: 20px;
+		}
+		&:after{
+			right: 20px;
+		}
+		>div{
+			padding: 25px 0;
+			border-bottom: 1px solid white;
+		}
+		.event_day{
+			font-size: 18px;
+		}
+		@media($md){
+			width: 30%;
+		}
+	}
+}
+@-webkit-keyframes loadermove {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+} 
+@keyframes loadermove {
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+}

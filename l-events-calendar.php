@@ -1,0 +1,71 @@
+<?php
+/*
+Plugin Name: L Events Calendar
+Description: Awesome, Responsive, easy to manage just like posts.
+Version: 1.0
+Author: Loi Truong
+Author URI: http://loitruong.us
+*/
+if (!class_exists('LEC_Plugin'))
+{
+  class LEC_Plugin
+  {
+
+    public function __construct()
+    {
+      /*
+        Option Page of the Plugin
+      */
+      include_once('option-page.php');
+      $OptionPage = new OptionPage();
+      if(!post_type_exists("l-event")){
+        include_once('initial-post-type.php');
+      }
+      /*
+       Custom fields
+      */
+      include_once('l-events-custom-fields.php');
+
+      /*
+        Add Script to admin panel
+      */
+      add_action( 'admin_enqueue_scripts', array($this, 'l_event_admin_scripts' ) );
+
+      /*
+        Add Shortcode
+      */
+      include_once('shortcode.php');
+
+      /*
+        Add Script to the site
+      */
+      add_action( 'wp_enqueue_scripts', array($this, 'l_event_wp_scripts' ) );
+
+      /*
+        Calendar API
+      */
+      include_once('calendar-api.php');
+    }
+    /**
+      * @desc put scripts and styles in admin page
+    */
+    function l_event_admin_scripts() {
+      wp_enqueue_style('style', plugins_url( 'css/admin/admin-main-style.css', __FILE__ ), array(), null);
+      wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
+      wp_enqueue_script('jquery');
+      wp_enqueue_script('jquery-ui-core');
+      wp_enqueue_script('jquery-ui-datepicker');
+      wp_enqueue_script( 'post-type-script', plugins_url( 'js/admin/post-type.js', __FILE__ ), array(), null);
+    }
+    /*
+      * @desc put scripts and styles in front end
+    */
+    function l_event_wp_scripts() {
+      wp_enqueue_style('style', plugins_url( 'css/calendar.css', __FILE__ ), array(), null);
+      wp_enqueue_script('jquery');
+      wp_enqueue_script( 'calendar-script', plugins_url( 'js/calendar.js', __FILE__ ), array(), null);
+    }
+  }// class end
+
+}
+$LEC_Plugin = new LEC_Plugin();

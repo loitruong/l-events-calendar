@@ -1,0 +1,57 @@
+/*
+	Admin Main Style
+*/
+// ==========================================================================
+// My SASS CONFIG
+// ==========================================================================
+// responsive
+$phone: "max-width: 450px";
+$half-sm: "max-width: 550px";
+$sm: "max-width: 767px";
+$md: "max-width: 991px";
+$lg: "max-width: 1199px";
+$xlg: "max-width: 1299px";
+$xxlg: "max-width: 1499px";
+//mixin
+@mixin prefix($attribute, $value) {
+  -webkit-#{$attribute}: #{$value};
+  -ms-#{$attribute}: #{$value};
+  -moz-#{$attribute}: #{$value};
+  -o-#{$attribute}: #{$value};
+  #{$attribute}: #{$value};
+}
+//colors
+$theme-color: #029F5A;
+// ==========================================================================
+.meta-box-container{
+	padding: 20px 0;
+}
+.l-row{
+	&:before, &:after{
+		content: '';
+		display: table;
+		clear: fixed;
+	}
+	.half-col{
+		width: 50%;
+		float: left;
+		margin-bottom: 10px;
+		@media($md){
+			width: 100%;
+		}
+	}
+	.full-col{
+		width: 100%;
+		margin-bottom: 10px;
+		input{
+			width: 80%;
+		}
+	}
+	select{
+		position: relative;
+		top: -3px;
+	}
+	input{
+		padding: 5px 3px;
+	}
+}
