@@ -37,7 +37,8 @@ function l_event_init() {
 		'hierarchical'       => false,
 		'menu_position'      => 5,
 		'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt'),
-		'taxonomies' => array('event-category')
+		'taxonomies' => array('event-category'),
+		'menu_icon'			=> 'dashicons-calendar-alt'
 	);
 
 	register_post_type( 'l-event', $args );
