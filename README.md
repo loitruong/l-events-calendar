@@ -1,6 +1,6 @@
 # l-events-calendar
 
-A WordPress plugin for a beautiful reponsive calendar. Manage events with ease.
+A WordPress plugin for a beautiful responsive calendar. Manage events with ease and simplicity.
 
 ### Install
 
