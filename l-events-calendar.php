@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: L Events Calendar
-Description: Awesome, Responsive, easy to manage just like posts.
-Version: 1.0
+Description: A beautiful responsive calendar. Manage events with ease and simplicity.
+Version: 1.0.1
 Author: Loi Truong
 Author URI: http://loitruong.us
 */
@@ -45,7 +45,7 @@ if (!class_exists('LEC_Plugin'))
         Calendar API
       */
       include_once('core/calendar-api.php');
-      
+
       /*
         Custom Button for TinyMCE
       */
