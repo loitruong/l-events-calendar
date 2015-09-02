@@ -45,6 +45,12 @@ if (!class_exists('LEC_Plugin'))
         Calendar API
       */
       include_once('core/calendar-api.php');
+      
+      /*
+        Custom Button for TinyMCE
+      */
+      include_once('core/custom-tinymce.php');
+
     }
     /**
       * @desc put scripts and styles in admin page

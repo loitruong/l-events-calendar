@@ -93,7 +93,7 @@
 		      </div>
           ';
     }
-    add_shortcode( 'l-event-calendar', 'calendar_shortcode');
+    add_shortcode( 'l-events-calendar', 'calendar_shortcode');
 
 
 ?>
