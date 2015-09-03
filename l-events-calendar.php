@@ -49,7 +49,7 @@ if (!class_exists('LEC_Plugin'))
       /*
         Custom Button for TinyMCE
       */
-      include_once('core/custom-tinymce.php');
+      include_once('core/custom-media-button.php');
 
     }
     /**
@@ -58,10 +58,12 @@ if (!class_exists('LEC_Plugin'))
     function l_event_admin_scripts() {
       wp_enqueue_style('style', plugins_url( 'css/admin/admin-main-style.css', __FILE__ ), array(), null);
       wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
+      wp_enqueue_style('thickbox');
       wp_enqueue_script('jquery');
       wp_enqueue_script('jquery-ui-core');
       wp_enqueue_script('jquery-ui-datepicker');
       wp_enqueue_script( 'post-type-script', plugins_url( 'js/admin/post-type.js', __FILE__ ), array(), null);
+      wp_enqueue_script('thickbox');
     }
     /*
       * @desc put scripts and styles in front end

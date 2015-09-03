@@ -6,7 +6,7 @@ A WordPress plugin for a beautiful responsive calendar. Manage events with ease 
 
 1. Upload `l-custom-fields` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the `Plugins` menu in WordPress
-3. Drop the shortcode `[l-event-calendar]` into page.
+3. Drop the shortcode `[l-events-calendar]` into page.
 4. Click on the new admin menu item "L-Events" and create your event.
 
 ### Plugin Development

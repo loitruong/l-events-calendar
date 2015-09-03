@@ -5,9 +5,8 @@
 	function getMonthCalendar() {
 		$args = array(
 			'posts_per_page'   => -1,
-			'category'         => '',
-			'category_name'    => '',
-			'post_type'        => 'l-event',
+			'event-category' => $_POST['category'],
+			'post_type'        => 'l-event'
 		);
 		$monthCalendar = array();
 		$eventData = array();

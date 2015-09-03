@@ -7,11 +7,14 @@
 
 //global variables
 var monthNames = ["none","Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+var category;
 $j = jQuery;
 var allEvents;
 var imagePath;
+var xhr; //ajax
 $j(document).ready(function(){
 	imagePath = $j("#loicalendar").attr("imagepath");
+	category = $j("#loicalendar").attr("category");
 	loiCalendar();
 	//==========================================================
 	//Click Events Section
@@ -262,10 +265,15 @@ function createRow(){
 function initialEventsToMonth($firstColumnPosition,m,y){
 	var currentColumn = $firstColumnPosition;
 	var currentRow = 0;
-	$j.ajax({
+	try{
+		xhr.abort();
+	}catch(e){
+		//no error
+	}
+	xhr = $j.ajax({
 	  method: "POST",
 	  url: "/wp-admin/admin-ajax.php",
-	  data: { action: 'getmonthcalendar' ,year: y, month: m }
+	  data: { action: 'getmonthcalendar' ,year: y, month: m, category: category }
 	}).done(function(data) {
 		data = JSON.parse(data);
 		calendarEvents = data.calendarEvents;
