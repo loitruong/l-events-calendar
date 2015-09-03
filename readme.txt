@@ -42,7 +42,7 @@ A. Yes you can!
 == Changelog ==
 
 = 1.0.1 =
-* [Added] TinyMCE quick add shortcode button
+* [Added] Media button add shortcode 
 * [Development] [Added] Grunt environment for quick compiling
 
 = 1.0.0 =

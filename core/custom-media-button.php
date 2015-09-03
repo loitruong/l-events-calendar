@@ -3,10 +3,13 @@
 	Custom Button for Tinymce
 */
 // add media button
-add_action('media_buttons', 'add_my_media_button');
-add_action('wp_enqueue_media', 'include_media_button_js_file');
 
+    add_action('media_buttons', 'add_my_media_button');
+    add_action('wp_enqueue_media', 'include_media_button_js_file');
 function add_my_media_button() {
+    $screen = get_current_screen();
+    if($screen->post_type == "l-event") return;
+
 	$args = array(
 		'show_option_all'   => 'All Events',
 		'taxonomy'           => 'event-category',
@@ -22,7 +25,7 @@ function add_my_media_button() {
             	<h2> Please select category for the calendar </h2>
             ';
        			wp_dropdown_categories( $args );
-
+    
      echo ' <h2> Display Calendar Image?</h2>
      		<select id="dispalyImage">
      			<option value="true">Yes</option>
@@ -30,7 +33,6 @@ function add_my_media_button() {
      		</select>
      		<br><br>
      		<input type="submit" class="button" id="submitcustommedia" value="Submit"/> 
-
      		</div>
     	 </div>';
 }
