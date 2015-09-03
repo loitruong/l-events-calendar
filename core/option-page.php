@@ -37,8 +37,8 @@
         <p>There are no settings at the momment. Please <a href="https://github.com/loitruong/l-events-calendar/issues/new" target="_blank">open a new issue</a> for feature requests.</p>
         <h2>Plugin Instructions</h2>
         <ol>
-          <li>Use the shortcode <code>[l-events-calendar]</code> on any page</li>
-          <li>Add an event inside l-event</li>
+          <li>Add an event inside l-events</li>
+          <li>Click on l-events button right above visual text editor to add the shortcode</li>
           <li>Enjoy the coolest event calendar ever.</li>
         </ol>
       </div>
