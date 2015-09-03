@@ -11,7 +11,8 @@ jQuery(function($) {
     $("#submitcustommedia").on("click", function(){
     	var $shortcode = "[l-events-calendar";
     	var $category = "";
-        $shortcode += " displayImage='" + $("#dispalyImage").val() + "'";
+        $shortcode += " calendarcolor='" + $("#mycalendarcolor").val() + "'";
+        $shortcode += " displayimage='" + $("#dispalyImage").val() + "'";
     	if($("#category_option").val() != "0"){
     		$category =  " category='" + $("#category_option").val() + "'";
     	}

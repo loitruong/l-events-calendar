@@ -61,6 +61,7 @@ if (!class_exists('LEC_Plugin'))
       wp_enqueue_style('thickbox');
       wp_enqueue_script('jquery');
       wp_enqueue_script('jquery-ui-core');
+      wp_enqueue_script('iris');
       wp_enqueue_script('jquery-ui-datepicker');
       wp_enqueue_script( 'post-type-script', plugins_url( 'js/admin/post-type.js', __FILE__ ), array(), null);
       wp_enqueue_script('thickbox');

@@ -31,6 +31,8 @@ function add_my_media_button() {
      			<option value="true">Yes</option>
      			<option value="false">No</option>
      		</select>
+            <h2> Calendar Color</h2>
+            <input type="color" id="mycalendarcolor" style="width: 50px; height: 50px; padding: 0; cursor: pointer;" value="#FF3D00" />
      		<br><br>
      		<input type="submit" class="button" id="submitcustommedia" value="Submit"/> 
      		</div>
