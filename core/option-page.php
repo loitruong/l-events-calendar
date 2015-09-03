@@ -12,16 +12,12 @@
     */
     public function add_plugin_page()
     {
-         // This page will be under "Settings"
-         add_menu_page(
-             'LEC Setting',
-             'LEC Setting',
+        add_submenu_page('edit.php?post_type=l-event',
+             'Settings',
+             'Settings',
              'manage_options',
-             'lec-setting',
-             array($this, 'create_admin_page')
-             //icon
-             //position
-         );
+             'lec-settings',
+             array($this, 'create_admin_page'));
     }
 
      /**
