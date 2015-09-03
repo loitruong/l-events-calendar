@@ -95,7 +95,7 @@ $j(document).ready(function(){
 				var each_event = allEvents[eventIDs[i]];
 				var event_location = '';
 				if(each_event.location != null){
-					event_location = "<div class='location'><b>Event Location: </b>"+ each_event.location +"</div>";
+					event_location = "<div class='location'><b>Event Location: </b><a href='https://www.google.com/maps?q="+ each_event.location +"' target='_blank'>"+ each_event.location +"</a></div>";
 				}
 				var event_date = '';
 				var event_time = '';
