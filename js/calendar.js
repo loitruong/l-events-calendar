@@ -83,7 +83,7 @@ $j(document).ready(function(){
 		//disable
 		var columndateformat = $j(this).attr("eventDate");
 		var eventIDs = $j(this).attr("event-lists");
-		var dummyImage = "'+ imagePath +'month_"+ $j(this).attr("eventMonth") +".jpg";
+		var dummyImage =  imagePath + "month_"+ $j(this).attr("eventMonth") +".jpg";
 		$j(".loiModal .event-list .content").empty();
 		$j("#loicalendar .loiModal").show().css("left", "100%").animate({
 			"left" : "0px"
@@ -121,7 +121,7 @@ $j(document).ready(function(){
 				}else{
 					thumbnail_image = dummyImage;
 				}
-				$j(".loiModal .event-list .content").append("<div class='eachEvent'><div class='thumbnail' style='background-image:url("+ thumbnail_image  +")'></div><div class='event-info'><div class='event-title'>"+ each_event.post_title  +"</div>"+ event_location +"<div class='event-description'>"+ each_event.post_excerpt +"</div></div><div class='event-date'>"+ event_date + event_time + "</div></div>");
+				$j(".loiModal .event-list .content").append("<div class='eachEvent'><div class='thumbnail' style='background-image:url(\""+ thumbnail_image  +"\")'></div><div class='event-info'><div class='event-title'>"+ each_event.post_title  +"</div>"+ event_location +"<div class='event-description'>"+ each_event.post_excerpt +"</div></div><div class='event-date'>"+ event_date + event_time + "</div></div>");
 			};
 		}catch(e){
 			eventIDs = eventIDs;
@@ -178,7 +178,7 @@ function loiCalendar(){
 	$j("#loicalendar .current-month").attr("year", currentYear);
 	$j("#loicalendar .current-month").text(monthNames[currentMonth] + " " + currentYear);
 	$j("#loicalendar .preloader").show();
-	$j('<img src=\"'+ imagePath +'month_'+ currentMonth +'.jpg\">').load(function() {
+	$j('<img src="'+ imagePath +'month_'+ currentMonth +'.jpg">').load(function() {
 		$j("#loicalendar .top-calendar").css("background-image", 'url("'+ imagePath +'month_'+ currentMonth +'.jpg")');
 		$j("#loicalendar .preloader").hide();
 	});
