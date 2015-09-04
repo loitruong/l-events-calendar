@@ -23,7 +23,7 @@
 
           return '
           	  <style>
-				#loicalendar,#loicalendar .calendar-row .calendar-column .column-date.currentDate{border-color:'. $color .'}#loicalendar .calendar-nav,#loicalendar .calendar-row .calendar-column .column-date.currentDate{color:'. $color .'}#loicalendar .calendar-nav svg,#loicalendar .calendar-row .view-all-events.active svg{fill:'. $color .'}#loicalendar .loiModal .close{background-color:'. $color .'}#loicalendar .loiModal .close:active,#loicalendar .loiModal .close:focus,#loicalendar .loiModal .close:hover{background-color:#fff;color:'. $color .'}
+				#loicalendar,#loicalendar .calendar-row .calendar-column .column-date.currentDate{border-color:'. $color .'}#loicalendar .calendar-nav,#loicalendar .calendar-row .calendar-column .column-date.currentDate{color:'. $color .'}#loicalendar .calendar-nav svg,#loicalendar .calendar-row .view-all-events.active svg,#loicalendar .top-calendar .preloader svg, #loicalendar .top-calendar .preloader svg path{fill:'. $color .'}#loicalendar .loiModal .close{background-color:'. $color .'}#loicalendar .loiModal .close:active,#loicalendar .loiModal .close:focus,#loicalendar .loiModal .close:hover{background-color:#fff;color:'. $color .'}
           	  </style>
 		      <div id="loicalendar" category="'. $category .'" imagePath="'. plugins_url( '../img/', __FILE__ ) .'">
 		      	<div class="binders">

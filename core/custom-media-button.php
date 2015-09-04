@@ -15,7 +15,8 @@ function add_my_media_button() {
 		'taxonomy'           => 'event-category',
 		'selected'	=> 1,
 		'id'		=> 'category_option',
-		'value_field'	=> 'slug'
+		'value_field'	=> 'slug',
+        'show_option_none' => "All Events"
 	);
 	    
     echo '
@@ -24,8 +25,7 @@ function add_my_media_button() {
             <div>
             	<h2> Please select category for the calendar </h2>
             ';
-       			wp_dropdown_categories( $args );
-    
+            wp_dropdown_categories( $args );
      echo ' <h2> Display Calendar Image?</h2>
      		<select id="dispalyImage">
      			<option value="true">Yes</option>

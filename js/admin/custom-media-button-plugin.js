@@ -13,7 +13,7 @@ jQuery(function($) {
     	var $category = "";
         $shortcode += " calendarcolor='" + $("#mycalendarcolor").val() + "'";
         $shortcode += " displayimage='" + $("#dispalyImage").val() + "'";
-    	if($("#category_option").val() != "0"){
+    	if($("#category_option").val() != "0" && $("#category_option").val() != "-1"){
     		$category =  " category='" + $("#category_option").val() + "'";
     	}
 		$shortcode += $category + "]";
