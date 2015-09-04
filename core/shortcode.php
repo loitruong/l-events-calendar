@@ -6,8 +6,8 @@
 	      if (isset($attr['category'])) {
 	    	$category = $attr['category'];
 	      }
-		  if (isset($attr['displayImage'])) {
-		  	$displayImage = $attr['displayImage'];
+		  if (isset($attr['displayimage'])) {
+		  	$displayImage = $attr['displayimage'];
 		  	if((boolean)$displayImage){
 		  		$topCalendar = '<div class="top-calendar">
 		  	    		<div class="preloader">
