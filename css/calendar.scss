@@ -249,7 +249,7 @@ $theme-color: #FF3D00;
     }
   }
 }
-.loiModal .layoutbackground{
+#loicalendar .loiModal .layoutbackground{
   position: absolute;
   left: 0;
   top: 0;
@@ -258,7 +258,7 @@ $theme-color: #FF3D00;
   z-index: 1;
   height: 100%;
 }
-.loiModal .event-list .header{
+#loicalendar .loiModal .event-list .header{
   position: absolute;
   top: -50px;
   font-size: 24px;
@@ -267,7 +267,7 @@ $theme-color: #FF3D00;
   left: 0;
   width: 100%;
 }
-.loiModal .event-list{
+#loicalendar .loiModal .event-list{
   position: relative;
   z-index: 2;
   top: 0;
@@ -284,14 +284,14 @@ $theme-color: #FF3D00;
     max-width: 100%;
   }
 }
-.loiModal  .content{
+#loicalendar .loiModal  .content{
 	width: 100%;
 	height: 100%;
 	min-height: 100vh;
 	background-color: white;
 	padding: 15px;
 }
-.loiModal .eachEvent{
+#loicalendar .loiModal .eachEvent{
 	margin-bottom: 20px;
 	&:before, &:after{
 		content: '';
