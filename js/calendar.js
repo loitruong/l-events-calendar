@@ -178,7 +178,7 @@ function loiCalendar(){
 	$j("#loicalendar .current-month").attr("year", currentYear);
 	$j("#loicalendar .current-month").text(monthNames[currentMonth] + " " + currentYear);
 	$j("#loicalendar .preloader").show();
-	$j('<img src="'+ imagePath +'month_'+ currentMonth +'.jpg">').load(function() {
+	$j('<img src=\"'+ imagePath +'month_'+ currentMonth +'.jpg\">').load(function() {
 		$j("#loicalendar .top-calendar").css("background-image", 'url("'+ imagePath +'month_'+ currentMonth +'.jpg")');
 		$j("#loicalendar .preloader").hide();
 	});
