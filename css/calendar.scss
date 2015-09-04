@@ -239,6 +239,9 @@ $theme-color: #FF3D00;
     z-index: 100;
     cursor: pointer;
     font-size: 24px;
+    height: 34px;
+    padding-top: 15px;
+    line-height: 0;
     &:focus, &:active, &:hover{
     	background-color: white;
     	color: $theme-color;
