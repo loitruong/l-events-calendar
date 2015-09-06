@@ -323,6 +323,7 @@ $theme-color: #FF3D00;
 		border-left: 3px solid white;
 		border-right: 3px solid white;
 		text-align: left;
+		padding: 0 5px;
 		.event-title{
 			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,2989d8+50,207cca+51,7db9e8+100;Blue+Gloss+Default */
 			background: rgb(30,87,153); /* Old browsers */
@@ -341,7 +342,8 @@ $theme-color: #FF3D00;
 			text-align: center;
 			text-transform: capitalize;
 		}
-		.event-description{
+		.event-link{
+			text-align: right;
 		}
 		@media($md){
 			width: 70%;

@@ -121,7 +121,7 @@ $j(document).ready(function(){
 				}else{
 					thumbnail_image = dummyImage;
 				}
-				$j(".loiModal .event-list .content").append("<div class='eachEvent'><div class='thumbnail' style='background-image:url(\""+ thumbnail_image  +"\")'></div><div class='event-info'><div class='event-title'>"+ each_event.post_title  +"</div>"+ event_location +"<div class='event-description'>"+ each_event.post_excerpt +"</div></div><div class='event-date'>"+ event_date + event_time + "</div></div>");
+				$j(".loiModal .event-list .content").append("<div class='eachEvent'><div class='thumbnail' style='background-image:url(\""+ thumbnail_image  +"\")'></div><div class='event-info'><div class='event-title'>"+ each_event.post_title  +"</div>"+ event_location +"<div class='event-description'>"+ each_event.post_excerpt +"</div><div class='event-link'><a href='"+ each_event.guid +"'>Read more</a></div></div><div class='event-date'>"+ event_date + event_time + "</div></div>");
 			};
 		}catch(e){
 			eventIDs = eventIDs;
