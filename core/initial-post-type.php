@@ -1,11 +1,11 @@
 <?php
-add_action( 'init', 'l_event_init' );
+add_action( 'init', 'lec_init' );
 /**
  * Register a post type.
  *
  * @link http://codex.wordpress.org/Function_Reference/register_post_type
  */
-function l_event_init() {
+function lec_init() {
 	$labels = array(
 		'name'               => _x( 'L-Events', 'post type general name', 'your-plugin-textdomain' ),
 		'singular_name'      => _x( 'L-Event', 'post type singular name', 'your-plugin-textdomain' ),
@@ -48,10 +48,10 @@ function l_event_init() {
 	Add custom taxonomies
 */
 	// hook into the init action and call create_book_taxonomies when it fires
-	add_action( 'init', 'create_l_event_taxonomies', 0 );
+	add_action( 'init', 'lec_create_l_event_taxonomies', 0 );
 
 	// create two taxonomies, Event Categories and writers for the post type "book"
-	function create_l_event_taxonomies() {
+	function lec_create_l_event_taxonomies() {
 		// Add new taxonomy, make it hierarchical (like categories)
 		$labels = array(
 			'name'              => _x( 'Event Categories', 'taxonomy general name' ),

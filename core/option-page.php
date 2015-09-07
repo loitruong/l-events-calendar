@@ -5,27 +5,27 @@
     public function __construct()
     {
 
-      add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
-      add_action( 'admin_init', array( $this, 'option_page_init' ) );
-      add_action( 'admin_enqueue_scripts', array( $this, 'only_for_this_page'));
+      add_action( 'admin_menu', array( $this, 'lec_add_plugin_page' ) );
+      add_action( 'admin_init', array( $this, 'lec_option_page_init' ) );
+      add_action( 'admin_enqueue_scripts', array( $this, 'lec_only_for_this_page'));
     }
     /**
     * Add options page
     */
-    public function add_plugin_page()
+    public function lec_add_plugin_page()
     {
         add_submenu_page('edit.php?post_type=l-event',
              'Settings',
              'Settings',
              'manage_options',
              'lec-settings',
-             array($this, 'create_admin_page'));
+             array($this, 'lec_create_admin_page'));
     }
 
      /**
       * Options page callback
       */
-     public function create_admin_page()
+     public function lec_create_admin_page()
      {
       // Set class property
       $this->options = get_option( 'lec_name_option' );
@@ -88,17 +88,17 @@
      /*
         this function is only for the option page
      */
-     function only_for_this_page(){
+     function lec_only_for_this_page(){
         $screen = get_current_screen();
         if($screen->base == 'l-event_page_lec-settings'){
-         add_filter( 'media_view_strings', array( $this, 'my_view_strings') );
+         add_filter( 'media_view_strings', array( $this, 'lec_my_view_strings') );
          wp_enqueue_script('media-upload');
          wp_enqueue_script('media_button', plugins_url( '../js/admin/wp-media-screen.js', __FILE__ ), '1.0', true);
         }
      }
 
      //disable buttons on media
-     function my_view_strings( $strings) {
+     function lec_my_view_strings( $strings) {
        // disable some views
        $disabled = array(  'createNewGallery', 'insertFromUrlTitle', 'createGalleryTitle' );
        foreach( $disabled as $string )
@@ -107,7 +107,7 @@
      }
 
 
-     function option_page_init(){
+     function lec_option_page_init(){
         register_setting(
                   'lec_group_option', // Option group
                   'lec_name_option' // Option name

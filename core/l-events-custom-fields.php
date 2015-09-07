@@ -3,31 +3,31 @@
 /**
  * Adds a box to the main column on the l-event edit screens.
  */
-function LEC_add_meta_box() {
+function lec_add_meta_box() {
 
     $screens = array( 'l-event' );
 
     foreach ( $screens as $screen ) {
 
         add_meta_box(
-            'LEC_sectionid',
-            __( 'L-Event Information', 'LEC_textdomain' ),
-            'LEC_meta_box_callback',
+            'lec_sectionid',
+            __( 'L-Event Information', 'lec_textdomain' ),
+            'lec_meta_box_callback',
             $screen
         );
     }
 }
-add_action( 'add_meta_boxes', 'LEC_add_meta_box' );
+add_action( 'add_meta_boxes', 'lec_add_meta_box' );
 
 /**
  * Prints the box content.
  * 
  * @param WP_Post $post The object for the current l-event
  */
-function LEC_meta_box_callback( $post ) {
+function lec_meta_box_callback( $post ) {
 
     // Add a nonce field so we can check for it later.
-    wp_nonce_field( 'LEC_save_meta_box_data', 'LEC_meta_box_nonce' );
+    wp_nonce_field( 'lec_save_meta_box_data', 'lec_meta_box_nonce' );
 
     /*
      * Use get_post_meta() to retrieve an existing value
@@ -62,7 +62,7 @@ function LEC_meta_box_callback( $post ) {
             <div class="full-col">
                 <?php
                 echo '<label for="location">';
-                _e( 'Location', 'LEC_textdomain' );
+                _e( 'Location', 'lec_textdomain' );
                 echo '</label> ';
                 echo '<input type="text" id="location" name="location" value="' . esc_attr($location) . '" />';
                 ?>
@@ -72,7 +72,7 @@ function LEC_meta_box_callback( $post ) {
             <div class="half-col">
                 <?php
                 echo '<label for="start_date">';
-                _e( 'Start Date', 'LEC_textdomain' );
+                _e( 'Start Date', 'lec_textdomain' );
                 echo '</label> ';
                 echo '<input type="text" id="start_date" class="jquery-datepicker" name="start_date" value="' . esc_attr( $start_date ) . '" size="25" />';
                 ?>
@@ -80,7 +80,7 @@ function LEC_meta_box_callback( $post ) {
             <div class="half-col">
                 <?php
                 echo '<label for="end_date">';
-                _e( 'End Date', 'LEC_textdomain' );
+                _e( 'End Date', 'lec_textdomain' );
                 echo '</label> ';
                 echo '<input type="text" id="end_date" class="jquery-datepicker" name="end_date" value="' . esc_attr( $end_date ) . '" size="25" />';
                 ?>
@@ -90,7 +90,7 @@ function LEC_meta_box_callback( $post ) {
             <div class="half-col">
                 <?php
                 echo '<label for="start_time">';
-                _e( 'Start Time', 'LEC_textdomain' );
+                _e( 'Start Time', 'lec_textdomain' );
                 echo '</label> ';
                 echo '<input type="number" id="start_time_hour" min="0" max="12" name="start_time_hour" value="' . esc_attr( $start_time_hour ) . '"/> : ';      
                 echo '<input type="number" id="start_time_minute" min="0" max="59" name="start_time_minute" value="' . esc_attr( $start_time%100 ) . '"/>';
@@ -107,7 +107,7 @@ function LEC_meta_box_callback( $post ) {
             <div class="half-col">
                 <?php
                 echo '<label for="end_time">';
-                _e( 'End Time', 'LEC_textdomain' );
+                _e( 'End Time', 'lec_textdomain' );
                 echo '</label> ';
                 echo '<input type="number" id="end_time_hour" min="0" max="12" name="end_time_hour" value="' . esc_attr( $end_time_hour ) . '"/> : ';      
                 echo '<input type="number" id="end_time_minute" min="0" max="59" name="end_time_minute" value="' . esc_attr( $end_time%100 ) . '"/>';
@@ -131,7 +131,7 @@ function LEC_meta_box_callback( $post ) {
  *
  * @param int $post_id The ID of the post being saved.
  */
-function LEC_save_meta_box_data( $post_id ) {
+function lec_save_meta_box_data( $post_id ) {
 
     /*
      * We need to verify this came from our screen and with proper authorization,
@@ -139,12 +139,12 @@ function LEC_save_meta_box_data( $post_id ) {
      */
 
     // Check if our nonce is set.
-    if ( ! isset( $_POST['LEC_meta_box_nonce'] ) ) {
+    if ( ! isset( $_POST['lec_meta_box_nonce'] ) ) {
         return;
     }
 
     // Verify that the nonce is valid.
-    if ( ! wp_verify_nonce( $_POST['LEC_meta_box_nonce'], 'LEC_save_meta_box_data' ) ) {
+    if ( ! wp_verify_nonce( $_POST['lec_meta_box_nonce'], 'lec_save_meta_box_data' ) ) {
         return;
     }
 
@@ -196,4 +196,4 @@ function LEC_save_meta_box_data( $post_id ) {
     update_post_meta( $post_id, 'location' , sanitize_text_field( $_POST['location'] ) );
 
 }
-add_action( 'save_post', 'LEC_save_meta_box_data' );
+add_action( 'save_post', 'lec_save_meta_box_data' );

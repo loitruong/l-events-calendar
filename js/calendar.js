@@ -275,7 +275,7 @@ function initialEventsToMonth($firstColumnPosition,m,y){
 	xhr = $j.ajax({
 	  method: "POST",
 	  url: "/wp-admin/admin-ajax.php",
-	  data: { action: 'getmonthcalendar' ,year: y, month: m, category: category }
+	  data: { action: 'lec_getmonthcalendar' ,year: y, month: m, category: category }
 	}).done(function(data) {
 		data = JSON.parse(data);
 		calendarEvents = data.calendarEvents;
@@ -403,7 +403,7 @@ function getMonthImages(){
 	$j.ajax({
 		  method: "POST",
 		  url: "/wp-admin/admin-ajax.php",
-		  data: { action: 'getMonthImages' }
+		  data: { action: 'lec_getMonthImages' }
 		}).done(function(data) {
 			data = JSON.parse(data);
 			calendarMonthImages = data;

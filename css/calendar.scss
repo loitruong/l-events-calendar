@@ -84,8 +84,14 @@ $theme-color: #FF3D00;
 	position: relative;
 	color: $theme-color;
 	padding: 25px 0 0;
+	&:before, &:after{
+		content: '';
+		display: table;
+		clear: both;
+	}
 	.current-month{
 		text-transform: uppercase;
+		min-height: 36px;
 	}
 	.prev-month{
 		position: absolute;
@@ -107,6 +113,7 @@ $theme-color: #FF3D00;
 }
 #loicalendar .calendar-layout{
 	padding: 15px;
+	min-height: 200px;
 	@media($phone){
 		font-size: 14px;
 	}

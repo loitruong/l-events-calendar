@@ -4,9 +4,9 @@
 */
 // add media button
 
-    add_action('media_buttons', 'add_my_media_button');
-    add_action('wp_enqueue_media', 'include_media_button_js_file');
-function add_my_media_button() {
+    add_action('media_buttons', 'lec_add_my_media_button');
+    add_action('wp_enqueue_media', 'lec_include_media_button_js_file');
+function lec_add_my_media_button() {
     $screen = get_current_screen();
     if($screen->post_type == "l-event") return;
 
@@ -38,7 +38,7 @@ function add_my_media_button() {
      		</div>
     	 </div>';
 }
-function include_media_button_js_file() {
+function lec_include_media_button_js_file() {
     wp_enqueue_script('media_button', plugins_url( '../js/admin/custom-media-button-plugin.js', __FILE__ ), array('jquery'), '1.0', true);
 }
 

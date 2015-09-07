@@ -1,5 +1,5 @@
 <?php 
-    function calendar_shortcode($attr){
+    function lec_calendar_shortcode($attr){
     	  $category = '';
     	  $topCalendar = '';
     	  $color = '';
@@ -111,7 +111,7 @@
 		      </div>
           ';
     }
-    add_shortcode( 'l-events-calendar', 'calendar_shortcode');
+    add_shortcode( 'l-events-calendar', 'lec_calendar_shortcode');
 
 
 ?>

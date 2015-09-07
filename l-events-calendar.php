@@ -32,7 +32,7 @@ if (!class_exists('LEC_Plugin'))
       /*
         Add Script to admin panel
       */
-      add_action( 'admin_enqueue_scripts', array($this, 'l_event_admin_scripts' ) );
+      add_action( 'admin_enqueue_scripts', array($this, 'lec_admin_scripts' ) );
 
       /*
         Add Shortcode
@@ -42,7 +42,7 @@ if (!class_exists('LEC_Plugin'))
       /*
         Add Script to the site
       */
-      add_action( 'wp_enqueue_scripts', array($this, 'l_event_wp_scripts' ) );
+      add_action( 'wp_enqueue_scripts', array($this, 'lec_wp_scripts' ) );
 
       /*
         Calendar API
@@ -58,7 +58,7 @@ if (!class_exists('LEC_Plugin'))
     /**
       * @desc put scripts and styles in admin page
     */
-    function l_event_admin_scripts() {
+    function lec_admin_scripts() {
       wp_enqueue_style('style', plugins_url( 'css/admin/admin-main-style.css', __FILE__ ), array(), null);
       wp_enqueue_style('jquery-style', plugins_url( 'css/admin/jquery-ui.min.css', __FILE__ ), array(), null);
       wp_enqueue_style('thickbox');
@@ -77,7 +77,7 @@ if (!class_exists('LEC_Plugin'))
     /*
       * @desc put scripts and styles in front end
     */
-    function l_event_wp_scripts() {
+    function lec_wp_scripts() {
       wp_enqueue_style('style', plugins_url( 'css/calendar.css', __FILE__ ), array(), null);
       wp_enqueue_script('jquery');
       wp_enqueue_script( 'calendar-script', plugins_url( 'js/calendar.js', __FILE__ ), array(), null);

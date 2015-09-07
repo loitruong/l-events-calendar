@@ -1,10 +1,10 @@
 <?php
-	add_action( 'wp_ajax_getmonthcalendar', 'getMonthCalendar');
-	add_action( 'wp_ajax_nopriv_getmonthcalendar', 'getMonthCalendar');
+	add_action( 'wp_ajax_lec_getmonthcalendar', 'lec_getMonthCalendar');
+	add_action( 'wp_ajax_nopriv_lec_getmonthcalendar', 'lec_getMonthCalendar');
 
-	add_action( 'wp_ajax_getMonthImages', 'getMonthImages');
-	add_action( 'wp_ajax_nopriv_getMonthImages', 'getMonthImages');
-	function getMonthCalendar() {
+	add_action( 'wp_ajax_lec_getMonthImages', 'lec_getMonthImages');
+	add_action( 'wp_ajax_nopriv_lec_getMonthImages', 'lec_getMonthImages');
+	function lec_getMonthCalendar() {
 		$args = array(
 			'posts_per_page'   => -1,
 			'event-category' => $_POST['category'],
@@ -46,15 +46,15 @@
 				if($startDate <= $endDate){
 					//okay now we will see where enddate at, is it in the month or outside of the month
 					if($endDate <= $lastdayofmonth){
-						$monthCalendar = push_date($event->ID, $startDate%100, $endDate%100, $monthCalendar);
+						$monthCalendar = lec_push_date($event->ID, $startDate%100, $endDate%100, $monthCalendar);
 						$eventData[$event->ID] = $event;
 					}else{
-						$monthCalendar = push_date($event->ID, $startDate%100, 31, $monthCalendar);	
+						$monthCalendar = lec_push_date($event->ID, $startDate%100, 31, $monthCalendar);	
 						$eventData[$event->ID] = $event;
 					}
 				}
 				else{
-					$monthCalendar = push_date($event->ID, $startDate%100, $startDate%100, $monthCalendar);
+					$monthCalendar = lec_push_date($event->ID, $startDate%100, $startDate%100, $monthCalendar);
 					$eventData[$event->ID] = $event;
 				}
 			}
@@ -62,10 +62,10 @@
 			//this is when startdate is not within the month, it should be less than the month
 			else if($startDate <= $endDate && $startDate < $firstdayofmonth && $endDate >= $firstdayofmonth){
 				if($endDate <= $lastdayofmonth){
-					$monthCalendar = push_date($event->ID, 1, $endDate%100, $monthCalendar);
+					$monthCalendar = lec_push_date($event->ID, 1, $endDate%100, $monthCalendar);
 					$eventData[$event->ID] = $event;
 				}else{
-					$monthCalendar = push_date($event->ID, 1, 31, $monthCalendar);
+					$monthCalendar = lec_push_date($event->ID, 1, 31, $monthCalendar);
 					$eventData[$event->ID] = $event;
 				}
 			}
@@ -87,7 +87,7 @@
 	// @para $monthCalendar = update this array
 	// @return monthCalendar array
 	*/
-	function push_date($id, $dateStartPush, $dateEndPush, $monthCalendar){
+	function lec_push_date($id, $dateStartPush, $dateEndPush, $monthCalendar){
 		for ($i=$dateStartPush; $i < $dateEndPush+1; $i++) {
 			if(isset($monthCalendar[$i])){ 
 				$monthCalendar[$i] =  $monthCalendar[$i] . "," . $id;
@@ -101,7 +101,7 @@
 	/*
 		Ajax call to get calendar month Images
 	*/
-	function getMonthImages() {
+	function lec_getMonthImages() {
 		$options = get_option( 'lec_name_option' );
 		$images = array();
 		if($options['calendar_image_option'] != "true"){
