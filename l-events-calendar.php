@@ -60,7 +60,7 @@ if (!class_exists('LEC_Plugin'))
     */
     function l_event_admin_scripts() {
       wp_enqueue_style('style', plugins_url( 'css/admin/admin-main-style.css', __FILE__ ), array(), null);
-      wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
+      wp_enqueue_style('jquery-style', plugins_url( 'css/admin/jquery-ui.min.css', __FILE__ ), array(), null);
       wp_enqueue_style('thickbox');
       wp_enqueue_script('jquery');
       if ( ! did_action( 'wp_enqueue_media' ) )
