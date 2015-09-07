@@ -2,6 +2,8 @@
 	add_action( 'wp_ajax_getmonthcalendar', 'getMonthCalendar');
 	add_action( 'wp_ajax_nopriv_getmonthcalendar', 'getMonthCalendar');
 
+	add_action( 'wp_ajax_getMonthImages', 'getMonthImages');
+	add_action( 'wp_ajax_nopriv_getMonthImages', 'getMonthImages');
 	function getMonthCalendar() {
 		$args = array(
 			'posts_per_page'   => -1,
@@ -96,7 +98,41 @@
 		}
 		return $monthCalendar;
 	};
+	/*
+		Ajax call to get calendar month Images
+	*/
+	function getMonthImages() {
+		$options = get_option( 'lec_name_option' );
+		$images = array();
+		if($options['calendar_image_option'] != "true"){
+			for ($i=1 ; $i < 13 ; $i++) { 
+				$string = "/img/month_". $i .".jpg";
+				array_push($images, plugins_url( $string , dirname(__FILE__) ) );
+			}
+		}else{
+			$image_id = explode(" ", $options['calendar_gallery']);
+			foreach ($image_id as $image) {
+			  if ($image != null) { 
+			  	$image_src = wp_get_attachment_image_src( $image, "large" );
+			    array_push($images, $image_src[0] ); 
+			  }  
+			}
+		}
+		if(count($images) < 12){
+			$images_length = count($images);
+			$count = 0;
+			for ($i=0; $i < 12; $i++) { 
+				if(!isset($images[$i])){
+					$images[$i] = $images[$count];
+					$count++;
+				}
+			}
+		}
+		echo json_encode($images);
+		//echo 'hi';
+		wp_die(); // this is required to terminate immediately and return a proper response
 
+	}
 
 
 

@@ -11,11 +11,12 @@ var category;
 $j = jQuery;
 var allEvents;
 var imagePath;
+var calendarMonthImages;
 var xhr; //ajax
 $j(document).ready(function(){
 	imagePath = $j("#loicalendar").attr("imagepath");
 	category = $j("#loicalendar").attr("category");
-	loiCalendar();
+	getMonthImages();
 	//==========================================================
 	//Click Events Section
 	//==========================================================
@@ -27,16 +28,16 @@ $j(document).ready(function(){
 			currentMonth = 12;
 			$j("#loicalendar .current-month").text(monthNames[12] + " " + currentYear);
 			$j("#loicalendar .preloader").show();
-			$j('<img src="'+ imagePath +'month_'+ currentMonth +'.jpg">').load(function() {
-				$j("#loicalendar .top-calendar").css("background-image", 'url("'+ imagePath +'month_'+ currentMonth +'.jpg")');
+			$j('<img src="'+ calendarMonthImages[currentMonth-1] +'">').load(function() {
+				$j("#loicalendar .top-calendar").css("background-image", 'url("'+ calendarMonthImages[currentMonth-1] +'")');
 				$j("#loicalendar .preloader").hide();
 			});
 		}else{
 			currentMonth--;
 			$j("#loicalendar .current-month").text(monthNames[currentMonth] + " " + currentYear);
 			$j("#loicalendar .preloader").show();
-			$j('<img src="'+ imagePath +'month_'+ currentMonth +'.jpg">').load(function() {
-				$j("#loicalendar .top-calendar").css("background-image", 'url("'+ imagePath +'month_'+ currentMonth +'.jpg")');
+			$j('<img src="'+ calendarMonthImages[currentMonth-1] +'">').load(function() {
+				$j("#loicalendar .top-calendar").css("background-image", 'url("'+ calendarMonthImages[currentMonth-1] +'")');
 				$j("#loicalendar .preloader").hide();
 			});
 		}
@@ -54,16 +55,16 @@ $j(document).ready(function(){
 			currentMonth = 1;
 			$j("#loicalendar .current-month").text(monthNames[1] + " " + currentYear);
 			$j("#loicalendar .preloader").show();
-			$j('<img src="'+ imagePath +'month_'+ currentMonth +'.jpg">').load(function() {
-				$j("#loicalendar .top-calendar").css("background-image", 'url("'+ imagePath +'month_'+ currentMonth +'.jpg")');
+			$j('<img src="'+ calendarMonthImages[currentMonth-1] +'">').load(function() {
+				$j("#loicalendar .top-calendar").css("background-image", 'url("'+ calendarMonthImages[currentMonth-1] +'")');
 				$j("#loicalendar .preloader").hide();
 			});
 		}else{
 			currentMonth++;
 			$j("#loicalendar .current-month").text(monthNames[currentMonth] + " " + currentYear);
 			$j("#loicalendar .preloader").show();
-			$j('<img src="'+ imagePath +'month_'+ currentMonth +'.jpg">').load(function() {
-				$j("#loicalendar .top-calendar").css("background-image", 'url("'+ imagePath +'month_'+ currentMonth +'.jpg")');
+			$j('<img src="'+ calendarMonthImages[currentMonth-1] +'">').load(function() {
+				$j("#loicalendar .top-calendar").css("background-image", 'url("'+ calendarMonthImages[currentMonth-1] +'")');
 				$j("#loicalendar .preloader").hide();
 			});
 		}
@@ -83,7 +84,8 @@ $j(document).ready(function(){
 		//disable
 		var columndateformat = $j(this).attr("eventDate");
 		var eventIDs = $j(this).attr("event-lists");
-		var dummyImage =  imagePath + "month_"+ $j(this).attr("eventMonth") +".jpg";
+		var dummyImage =  calendarMonthImages[$j(this).attr("eventMonth")-1];
+
 		$j(".loiModal .event-list .content").empty();
 		$j("#loicalendar .loiModal").show().css("left", "100%").animate({
 			"left" : "0px"
@@ -178,8 +180,8 @@ function loiCalendar(){
 	$j("#loicalendar .current-month").attr("year", currentYear);
 	$j("#loicalendar .current-month").text(monthNames[currentMonth] + " " + currentYear);
 	$j("#loicalendar .preloader").show();
-	$j('<img src="'+ imagePath +'month_'+ currentMonth +'.jpg">').load(function() {
-		$j("#loicalendar .top-calendar").css("background-image", 'url("'+ imagePath +'month_'+ currentMonth +'.jpg")');
+	$j('<img src="'+ calendarMonthImages[currentMonth-1] +'">').load(function() {
+		$j("#loicalendar .top-calendar").css("background-image", 'url("'+ calendarMonthImages[currentMonth-1] +'")');
 		$j("#loicalendar .preloader").hide();
 	});
 	
@@ -394,4 +396,19 @@ function responsive(){
 		});
 	}
 };
+//==========================================================
+// Get Month Images From Option
+//==========================================================
+function getMonthImages(){
+	$j.ajax({
+		  method: "POST",
+		  url: "/wp-admin/admin-ajax.php",
+		  data: { action: 'getMonthImages' }
+		}).done(function(data) {
+			data = JSON.parse(data);
+			calendarMonthImages = data;
+			loiCalendar();
+		});
+}
+
 

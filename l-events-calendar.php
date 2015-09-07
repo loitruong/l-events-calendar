@@ -18,6 +18,9 @@ if (!class_exists('LEC_Plugin'))
       */
       include_once('core/option-page.php');
       $OptionPage = new OptionPage();
+      /*
+        initinal Post type
+      */
       if(!post_type_exists("l-event")){
         include_once('core/initial-post-type.php');
       }
@@ -60,7 +63,12 @@ if (!class_exists('LEC_Plugin'))
       wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
       wp_enqueue_style('thickbox');
       wp_enqueue_script('jquery');
+      if ( ! did_action( 'wp_enqueue_media' ) )
+            wp_enqueue_media();
+      wp_enqueue_script('media-upload');
+      wp_enqueue_script('media_button', plugins_url( '../js/admin/wp-media-screen.js', __FILE__ ), '1.0', true);
       wp_enqueue_script('jquery-ui-core');
+      wp_enqueue_script('jquery-ui-sortable');
       wp_enqueue_script('iris');
       wp_enqueue_script('jquery-ui-datepicker');
       wp_enqueue_script( 'post-type-script', plugins_url( 'js/admin/post-type.js', __FILE__ ), array(), null);

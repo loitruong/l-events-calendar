@@ -20,4 +20,5 @@ jQuery(function($) {
     	window.send_to_editor($shortcode);
     	tb_remove();
     });
+
 });
