@@ -2,6 +2,8 @@
 
 A WordPress plugin for a beautiful responsive calendar. Manage events with ease and simplicity.
 
+[https://wordpress.org/plugins/l-events-calendar/](https://wordpress.org/plugins/l-events-calendar/)
+
 ### Install
 
 1. Upload `l-custom-fields` to the `/wp-content/plugins/` directory
