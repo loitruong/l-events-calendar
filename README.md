@@ -1,4 +1,4 @@
-# l-events-calendar
+# l-events-calendar [![License](https://img.shields.io/badge/license-GPL--2.0%2B-green.svg)](http://www.gnu.org/licenses/gpl-2.0.html)
 
 A WordPress plugin for a beautiful responsive calendar. Manage events with ease and simplicity.
 
@@ -14,7 +14,3 @@ A WordPress plugin for a beautiful responsive calendar. Manage events with ease 
 ### Plugin Development
 
 Run `npm install` from the project root to download dependencies. Run `grunt` to compile and watch all stylesheets.
-
-### License
-
-GPLv2 or later
