@@ -2,7 +2,7 @@
 Contributors: loitruong, JoeFusco
 Tags: events, calendar, custom, responsive, dates, time, admin, shortcodes
 Requires at least: 3.5.0
-Tested up to: 4.3
+Tested up to: 4.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,7 +42,7 @@ A. Yes you can!
 == Changelog ==
 
 = 1.0.1 =
-* [Added] Media button add shortcode 
+* [Added] Media button add shortcode
 * [Development] [Added] Grunt environment for quick compiling
 
 = 1.0.0 =
