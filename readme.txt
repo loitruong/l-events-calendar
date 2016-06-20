@@ -41,6 +41,9 @@ A. Yes you can!
 
 == Changelog ==
 
+= 1.0.2 =
+* [Fixed] Saturday column sometimes displaying in the next row
+
 = 1.0.1 =
 * [Added] Media button add shortcode
 * [Development] [Added] Grunt environment for quick compiling
