@@ -2,7 +2,7 @@
 /*
 Plugin Name: L Events Calendar
 Description: A beautiful responsive calendar. Manage events with ease and simplicity.
-Version: 1.0.1
+Version: 1.0.2
 Author: Loi Truong
 Author URI: http://loitruong.us
 */
